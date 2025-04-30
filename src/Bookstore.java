@@ -22,30 +22,44 @@ import java.util.List;
 public class Bookstore {
     public static void main(String[] args) {
 
-        Book artisticLiterature = new ArtisticLiterature("Денискины рассказы", "Виктор Юзефович " +
-                "Драгунский", 7, 170, "Литературный цикл", "Первый день, Похититель собак," +
-                " Рыцари, Слон и радио, Старый мореход");
+        Book artisticLiterature = new ArtisticLiterature(
+                "Денискины рассказы",
+                "Виктор Юзефович Драгунский",
+                7,
+                170,
+                "Литературный цикл",
+                "Первый день, Похититель собак, Рыцари, Слон и радио, Старый мореход");
 
-        Book educationLiterature = new EducationLiterature("Учебное пособие", "Гарик Гагикович" +
-                " Петросян", 12, 500, "Алгебра", 11);
+        Book educationLiterature = new EducationLiterature(
+                "Учебное пособие",
+                "Гарик Гагикович Петросян",
+                12,
+                500,
+                "Алгебра",
+                11);
 
-        Book scientificLiterature = new ScientificLiterature("Познание", "Игорь Петрович Мешков",
-                3, 740, "Ядерная физика", "Начальный");
+        Book scientificLiterature = new ScientificLiterature(
+                "Познание",
+                "Игорь Петрович Мешков",
+                3,
+                740,
+                "Ядерная физика",
+                "Начальный");
 
         List<Book> books = new ArrayList<>();
+
         books.add(artisticLiterature);
         books.add(educationLiterature);
         books.add(scientificLiterature);
 
         for (Book book : books) {
-            System.out.println(book);
 
+            System.out.println();
+            System.out.println(book);
 
             if (book instanceof EducationLiterature castedEducationLiterature) {
                 castedEducationLiterature.hasDisk();
             }
-
-            System.out.println();
         }
     }
 }

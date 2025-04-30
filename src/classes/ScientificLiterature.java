@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.Objects;
+
 import enums.TypeOfBook;
 
 public final class ScientificLiterature extends Book {
@@ -9,7 +10,7 @@ public final class ScientificLiterature extends Book {
     private final String difficultyLevel;
 
     public ScientificLiterature(String titleOfTheBook, String author, int availability, int price, String scopeOfStudy,
-                         String difficultyLevel) {
+                                String difficultyLevel) {
         super(titleOfTheBook, author, availability, price);
         this.scopeOfStudy = scopeOfStudy;
         this.difficultyLevel = difficultyLevel;
@@ -23,9 +24,13 @@ public final class ScientificLiterature extends Book {
 
     @Override
     public String toString() {
-        return getType() + "Название книги: " + titleOfTheBook + "\nАвтор: " + author + "\nСфера изучения: " +
-                scopeOfStudy + "\nУровень сложности: " + difficultyLevel + "\nЦена: " + price + " руб" + "\nВ наличии " +
-                availability + " шт";
+        return getType() +
+                "Название книги: " + titleOfTheBook +
+                "\nАвтор: " + author +
+                "\nСфера изучения: " + scopeOfStudy +
+                "\nУровень сложности: " + difficultyLevel +
+                "\nЦена: " + price + " руб" +
+                "\nВ наличии " + availability + " шт";
     }
 
     @Override

@@ -1,8 +1,8 @@
 package classes;
 
 import enums.TypeOfBook;
-import java.util.Objects;
 
+import java.util.Objects;
 
 public final class ArtisticLiterature extends Book {
 
@@ -24,8 +24,13 @@ public final class ArtisticLiterature extends Book {
 
     @Override
     public String toString() {
-        return getType() + "Название книги: " + titleOfTheBook + "\nАвтор: " + author + "\nЖанр: " + genre +
-                "\nСодержание: " + content + "\nЦена: " + price + " руб" + "\nВ наличии " + availability + " шт";
+        return getType() +
+                "Название книги: " + titleOfTheBook +
+                "\nАвтор: " + author +
+                "\nЖанр: " + genre +
+                "\nСодержание: " + content +
+                "\nЦена: " + price + " руб" +
+                "\nВ наличии " + availability + " шт";
     }
 
     @Override

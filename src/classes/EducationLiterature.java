@@ -1,9 +1,9 @@
 package classes;
 
 import java.util.Objects;
+
 import enums.TypeOfBook;
 import interfaces.AdditionalInformationable;
-
 
 public final class EducationLiterature extends Book implements AdditionalInformationable {
 
@@ -22,22 +22,12 @@ public final class EducationLiterature extends Book implements AdditionalInforma
 
     @Override
     public void hasDisk() {
-        if (availabilityDisk == 1) {
-            System.out.println("Продается без диска");
-        } else {
-            System.out.println("Продается с диском");
-        }
+        System.out.println(availabilityDisk == 1 ? "Продается без диска" : "Продается с диском");
     }
 
     @Override
     public String flightMaterial(int n) {
-        if (n == 1) {
-            return "Переплет кожаный";
-        } else if (n == 2) {
-            return "Переплет твердый";
-        } else {
-            return "Переплет мягкий";
-        }
+        return n == 1 ? "Переплет кожаный" : n == 2 ? "Переплет твердый" : "Переплет мягкий";
     }
 
     @Override
@@ -47,9 +37,14 @@ public final class EducationLiterature extends Book implements AdditionalInforma
 
     @Override
     public String toString() {
-        return getType() + "Название книги: " + titleOfTheBook + "\nАвтор: " + author + "\nПредмет: " + objectOfStudy +
-                "\nКласс изучения: " + studyClass + "\nЦена: " + price + " руб" + "\nВ наличии " + availability +
-                " шт\n" + flightMaterial((int) (Math.random() * 3) + 1);
+        return getType() +
+                "Название книги: " + titleOfTheBook +
+                "\nАвтор: " + author +
+                "\nПредмет: " + objectOfStudy +
+                "\nКласс изучения: " + studyClass +
+                "\nЦена: " + price + " руб" +
+                "\nВ наличии " + availability + " шт\n" +
+                flightMaterial((int) (Math.random() * 3) + 1);
     }
 
     @Override
@@ -60,11 +55,12 @@ public final class EducationLiterature extends Book implements AdditionalInforma
 
         return this.titleOfTheBook.equals(book.titleOfTheBook) && this.author.equals(book.author) &&
                 this.objectOfStudy.equals(book.objectOfStudy) && book.studyClass == this.studyClass &&
-                book.price == this.price && book.availability == this.availability;
+                book.price == this.price && book.availability == this.availability &&
+                book.availabilityDisk == this.availabilityDisk;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(titleOfTheBook, author, price, availability, objectOfStudy, studyClass);
+        return Objects.hash(titleOfTheBook, author, price, availability, objectOfStudy, studyClass, availabilityDisk);
     }
 }
