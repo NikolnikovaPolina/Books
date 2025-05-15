@@ -1,4 +1,4 @@
-package enums;
+package ru.amm.nikolnikova.enums;
 
 public enum TypeOfBook {
     TYPE,

@@ -1,8 +1,8 @@
-package classes;
+package ru.amm.nikolnikova.classes;
+
+import ru.amm.nikolnikova.enums.TypeOfBook;
 
 import java.util.Objects;
-
-import enums.TypeOfBook;
 
 public final class ScientificLiterature extends Book {
 

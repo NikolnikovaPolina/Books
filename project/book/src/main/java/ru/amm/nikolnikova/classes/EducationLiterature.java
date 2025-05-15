@@ -1,9 +1,10 @@
-package classes;
+package ru.amm.nikolnikova.classes;
+
+
+import ru.amm.nikolnikova.enums.TypeOfBook;
+import ru.amm.nikolnikova.interfaces.AdditionalInformationable;
 
 import java.util.Objects;
-
-import enums.TypeOfBook;
-import interfaces.AdditionalInformationable;
 
 public final class EducationLiterature extends Book implements AdditionalInformationable {
 
