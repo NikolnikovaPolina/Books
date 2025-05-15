@@ -11,16 +11,25 @@
 В коде программы продемонстрировать использование принципов ООП на основе созданной иерархии классов.
 */
 
-import classes.Book;
-import classes.ArtisticLiterature;
-import classes.EducationLiterature;
-import classes.ScientificLiterature;
+package ru.amm.nikolnikova;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ru.amm.nikolnikova.classes.ArtisticLiterature;
+import ru.amm.nikolnikova.classes.Book;
+import ru.amm.nikolnikova.classes.EducationLiterature;
+import ru.amm.nikolnikova.classes.ScientificLiterature;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Bookstore {
+
+    private static final Logger logger = LoggerFactory.getLogger(Bookstore.class);
+
     public static void main(String[] args) {
+
+        logger.info("Start of work");
 
         Book artisticLiterature = new ArtisticLiterature(
                 "Денискины рассказы",
@@ -61,5 +70,7 @@ public class Bookstore {
                 castedEducationLiterature.hasDisk();
             }
         }
+
+        logger.info("End of work");
     }
 }

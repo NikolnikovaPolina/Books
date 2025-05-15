@@ -1,6 +1,6 @@
-package classes;
+package ru.amm.nikolnikova.classes;
 
-import enums.TypeOfBook;
+import ru.amm.nikolnikova.enums.TypeOfBook;
 
 import java.util.Objects;
 
