@@ -21,7 +21,7 @@ public abstract class Book {
     }
 
     protected String getType() {
-        return "";
+        return "Тип книги: " + type.getDescription() + "\n";
     }
 
     @Override

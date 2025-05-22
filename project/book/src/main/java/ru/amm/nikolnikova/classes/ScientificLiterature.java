@@ -18,11 +18,6 @@ public final class ScientificLiterature extends Book {
     }
 
     @Override
-    public String getType() {
-        return "Тип книги: Научная литература\n";
-    }
-
-    @Override
     public String toString() {
         return getType() +
                 "Название книги: " + titleOfTheBook +

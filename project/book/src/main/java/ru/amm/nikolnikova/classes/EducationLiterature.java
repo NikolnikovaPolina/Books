@@ -32,11 +32,6 @@ public final class EducationLiterature extends Book implements AdditionalInforma
     }
 
     @Override
-    public String getType() {
-        return "Тип книги: Учебная литература\n";
-    }
-
-    @Override
     public String toString() {
         return getType() +
                 "Название книги: " + titleOfTheBook +
