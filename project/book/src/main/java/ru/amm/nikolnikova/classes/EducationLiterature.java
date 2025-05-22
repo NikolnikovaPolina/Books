@@ -6,7 +6,7 @@ import ru.amm.nikolnikova.interfaces.AdditionalInformationable;
 
 import java.util.Objects;
 
-public final class EducationLiterature extends Book implements AdditionalInformationable {
+public class EducationLiterature extends Book implements AdditionalInformationable {
 
     private final String objectOfStudy;
     private final int studyClass;
@@ -23,17 +23,12 @@ public final class EducationLiterature extends Book implements AdditionalInforma
 
     @Override
     public void hasDisk() {
-        System.out.println(availabilityDisk == 1 ? "Продается без диска" : "Продается с диском");
+        System.out.println("Продается " + (availabilityDisk == 1 ? "без диска" : "с диском"));
     }
 
     @Override
     public String flightMaterial(int n) {
-        return n == 1 ? "Переплет кожаный" : n == 2 ? "Переплет твердый" : "Переплет мягкий";
-    }
-
-    @Override
-    public String getType() {
-        return "Тип книги: Учебная литература\n";
+        return "Переплет " + (n == 1 ? "кожаный" : n == 2 ? "твердый" : "мягкий");
     }
 
     @Override

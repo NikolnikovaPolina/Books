@@ -18,11 +18,6 @@ public final class ArtisticLiterature extends Book {
     }
 
     @Override
-    public String getType() {
-        return "Тип книги: Художественная литература\n";
-    }
-
-    @Override
     public String toString() {
         return getType() +
                 "Название книги: " + titleOfTheBook +

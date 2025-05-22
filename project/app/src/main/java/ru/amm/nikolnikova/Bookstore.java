@@ -18,10 +18,8 @@ import org.slf4j.LoggerFactory;
 import ru.amm.nikolnikova.classes.ArtisticLiterature;
 import ru.amm.nikolnikova.classes.Book;
 import ru.amm.nikolnikova.classes.EducationLiterature;
+import ru.amm.nikolnikova.classes.Library;
 import ru.amm.nikolnikova.classes.ScientificLiterature;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Bookstore {
 
@@ -55,21 +53,13 @@ public class Bookstore {
                 "Ядерная физика",
                 "Начальный");
 
-        List<Book> books = new ArrayList<>();
+        Library library = new Library();
 
-        books.add(artisticLiterature);
-        books.add(educationLiterature);
-        books.add(scientificLiterature);
+        library.addBook(artisticLiterature);
+        library.addBook(educationLiterature);
+        library.addBook(scientificLiterature);
 
-        for (Book book : books) {
-
-            System.out.println();
-            System.out.println(book);
-
-            if (book instanceof EducationLiterature castedEducationLiterature) {
-                castedEducationLiterature.hasDisk();
-            }
-        }
+        library.printBooks();
 
         logger.info("End of work");
     }
