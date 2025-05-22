@@ -27,4 +27,8 @@ public class Library {
 
         System.out.println();
     }
+
+    public List<Book> getBooks() {
+        return books;
+    }
 }
