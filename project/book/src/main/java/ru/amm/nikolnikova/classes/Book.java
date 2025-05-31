@@ -7,9 +7,13 @@ import java.util.Objects;
 public abstract class Book {
 
     protected String titleOfTheBook;
+
     protected String author;
+
     protected int availability;
+
     protected int price;
+
     protected TypeOfBook type;
 
     protected Book(String titleOfTheBook, String author, int availability, int price) {

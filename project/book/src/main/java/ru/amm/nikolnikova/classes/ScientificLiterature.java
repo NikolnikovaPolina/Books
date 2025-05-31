@@ -7,6 +7,7 @@ import java.util.Objects;
 public final class ScientificLiterature extends Book {
 
     private final String scopeOfStudy;
+
     private final String difficultyLevel;
 
     public ScientificLiterature(String titleOfTheBook, String author, int availability, int price, String scopeOfStudy,
