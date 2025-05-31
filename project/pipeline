@@ -1,0 +1,167 @@
+pipeline {
+    agent any
+
+     stages {
+        stage('Clone repository') {
+            steps {
+                 script {
+                    env.BRANCH_NAME = 'feature/5'
+                    git url: 'https://github.com/NikolnikovaPolina/Books.git', branch: env.BRANCH_NAME
+                 }
+            }
+        }
+
+        stage('Compile code and tests') {
+            steps {
+                dir('project') {
+                    bat 'mvn clean compile test-compile'
+                }
+            }
+        }
+
+        stage('Run tests') {
+            when {
+                expression {
+                    env.BRANCH_NAME != null && env.BRANCH_NAME.startsWith('feature/')
+                }
+            }
+            steps {
+                dir('project') {
+                    bat 'mvn test'
+                }
+            }
+        }
+         stage('Static analysis') {
+            when {
+                expression {
+                    env.BRANCH_NAME == 'develop'
+                }
+            }
+            steps {
+                 dir('project') {
+                    bat 'mvn checkstyle:check'
+                }
+            }
+        }
+        stage('Code coverage') {
+            steps {
+                dir('project') {
+                    bat 'mvn clean test jacoco:report'
+                }
+            }
+        }
+        stage('Install Artifacts') {
+            when {
+                expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
+            }
+            steps {
+                 dir('project') {
+                    bat 'mvn install'
+                }
+            }
+        }
+
+        stage('Coverage Check') {
+            steps {
+                dir('project') {
+                    bat 'mvn jacoco:check'
+                }
+            }
+        }
+
+       pipeline {
+           agent any
+
+            stages {
+               stage('Clone repository') {
+                   steps {
+                        script {
+                           env.BRANCH_NAME = 'feature/5'
+                           git url: 'https://github.com/NikolnikovaPolina/Books.git', branch: env.BRANCH_NAME
+                        }
+                   }
+               }
+
+               stage('Compile code and tests') {
+                   steps {
+                       dir('project') {
+                           bat 'mvn clean compile test-compile'
+                       }
+                   }
+               }
+
+               stage('Run tests') {
+                   when {
+                       expression {
+                           env.BRANCH_NAME != null && env.BRANCH_NAME.startsWith('feature/')
+                       }
+                   }
+                   steps {
+                       dir('project') {
+                           bat 'mvn test'
+                       }
+                   }
+               }
+
+                stage('Static analysis') {
+                   when {
+                       expression {
+                           env.BRANCH_NAME == 'develop'
+                       }
+                   }
+                   steps {
+                        dir('project') {
+                           bat 'mvn checkstyle:check'
+                       }
+                   }
+               }
+
+               stage('Code coverage') {
+                   steps {
+                       dir('project') {
+                           bat 'mvn clean test jacoco:report'
+                       }
+                   }
+               }
+
+               stage('Install Artifacts') {
+                   when {
+                       expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
+                   }
+                   steps {
+                        dir('project') {
+                           bat 'mvn install'
+                       }
+                   }
+               }
+
+                stage('Coverage Check') {
+                   steps {
+                       dir('project') {
+                           bat 'mvn jacoco:check'
+                       }
+                   }
+               }
+
+               stage('Publish Artifacts') {
+                   steps {
+                       dir('project/app') {
+                            script {
+                               bat 'copy /Y "target\\app-1.0-SNAPSHOT-jar-with-dependencies.jar" "D:\\copy\\"'
+                           }
+                       }
+                   }
+               }
+           }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline завершился успешно!'
+        }
+        failure {
+            echo 'Pipeline завершился с ошибкой!'
+        }
+    }
+}

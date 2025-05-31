@@ -2,6 +2,11 @@ package ru.amm.nikolnikova.classes;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,21 +17,22 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class LibraryTest {
 
+    @InjectMocks
     private Library library;
+
+    @Mock
     private Book mockBook;
 
     @BeforeEach
     void setUp() {
-        library = new Library();
-        mockBook = mock(Book.class);
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
     public void addBook_ShouldIncreaseBookListSize() {
-        when(mockBook.toString()).thenReturn("Mocked Book");
-
         int initialSize = library.getBooks().size();
         library.addBook(mockBook);
 

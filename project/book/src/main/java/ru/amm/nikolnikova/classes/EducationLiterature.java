@@ -1,6 +1,5 @@
 package ru.amm.nikolnikova.classes;
 
-
 import ru.amm.nikolnikova.enums.TypeOfBook;
 import ru.amm.nikolnikova.interfaces.AdditionalInformationable;
 
@@ -9,7 +8,9 @@ import java.util.Objects;
 public class EducationLiterature extends Book implements AdditionalInformationable {
 
     private final String objectOfStudy;
+
     private final int studyClass;
+
     private final int availabilityDisk;
 
     public EducationLiterature(String titleOfTheBook, String author, int availability, int price, String objectOfStudy,

@@ -7,6 +7,7 @@ import java.util.Objects;
 public final class ArtisticLiterature extends Book {
 
     private final String genre;
+
     private final String content;
 
     public ArtisticLiterature(String titleOfTheBook, String author, int availability, int price, String genre,
